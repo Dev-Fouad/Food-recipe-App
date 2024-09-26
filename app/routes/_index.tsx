@@ -25,14 +25,41 @@ export default function Index() {
   const { randomMeal } = useLoaderData() as loaderdata;
 
   return (
-    <div>
-      {randomMeal?.meals.map((meal: RandomMeal) => {
-        return (
-          <div key={Math.random() * 10}>
-            <img src={meal.strMealThumb} alt="" />
-          </div> 
-        );
-      })}
-    </div>
+    <section className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        Random Meal
+      </h1>
+
+      <div className="flex justify-center">
+        {randomMeal?.meals.map((meal: RandomMeal) => (
+          <div
+            id={meal.idMeal}
+            key={meal.idMeal}
+            className="bg-white rounded-lg shadow-lg overflow-hidden max-w-md w-full"
+          >
+            <div className="relative h-64">
+              <img
+                src={meal.strMealThumb}
+                alt={meal.strMeal}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+              />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                {meal.strMeal}
+              </h2>
+              <div className="flex space-x-2 cursor-pointer">
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                  {meal.strCategory}
+                </span>
+                <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                  {meal.strArea}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

@@ -1,9 +1,34 @@
 export const Header = () => {
   return (
-    <nav className=" z-50 w-screen py-7 sticky top-0 bg-black text-white text-base md:text-2xl flex justify-around">
-      <h1 className=" md:font-semibold">Food Recipe App</h1>
-      <h2>Home</h2>
-      <h2>Favourites</h2>
-    </nav>
+    <header className="bg-gradient-to-r from-teal-500 to-cyan-600 relative">
+      <div className="absolute inset-0 bg-white/[0.05] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <nav className="container mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between relative z-10">
+        <h1 className="text-3xl font-bold text-white mb-4 sm:mb-0">
+          <h2 className="hover:text-yellow-200 transition duration-300 flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M6 3a1 1 0 011-1h.01a1 1 0 010 2H7a1 1 0 01-1-1zm2 3a1 1 0 00-2 0v1a2 2 0 00-2 2v1a2 2 0 00-2 2v.683a3.7 3.7 0 011.055.485 1.704 1.704 0 001.89 0 3.704 3.704 0 014.11 0 1.704 1.704 0 001.89 0 3.704 3.704 0 014.11 0 1.704 1.704 0 001.89 0A3.7 3.7 0 0118 12.683V12a2 2 0 00-2-2V9a2 2 0 00-2-2V6a1 1 0 10-2 0v1h-1V6a1 1 0 10-2 0v1H8V6zm10 8.868a3.704 3.704 0 01-4.055-.036 1.704 1.704 0 00-1.89 0 3.704 3.704 0 01-4.11 0 1.704 1.704 0 00-1.89 0A3.704 3.704 0 012 14.868V17a1 1 0 001 1h14a1 1 0 001-1v-2.132zM9 3a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm3 0a1 1 0 011-1h.01a1 1 0 110 2H13a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Food Recipe App
+          </h2>
+        </h1>
+        <div className="flex space-x-6">
+          <h2 className="text-white hover:text-yellow-200 transition duration-300 text-lg font-semibold">
+            Home
+          </h2>
+          <h2 className="text-white hover:text-yellow-200 transition duration-300 text-lg font-semibold">
+            Favourites
+          </h2>
+        </div>
+      </nav>
+    </header>
   );
 };
