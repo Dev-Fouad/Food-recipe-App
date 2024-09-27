@@ -1,6 +1,6 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getRandomMeal } from "../utils/ApiService";
+import { getRandomRecipe } from "../utils/ApiService";
 import { RandomMeal } from "../utils/types";
 import { XCircle } from "lucide-react";
 
@@ -13,33 +13,33 @@ export const meta: MetaFunction = () => {
 
 type loaderdata = {
   // this implies that the "random Meal type is whatever type getRandom resolves to"
-  randomMeal: Awaited<ReturnType<typeof getRandomMeal>>;
+  randomRecipe: Awaited<ReturnType<typeof getRandomRecipe>>;
 };
 
 export const loader = async () => {
   return json({
-    randomMeal: await getRandomMeal(),
+    randomRecipe: await getRandomRecipe(),
   });
 };
 
 export default function Index() {
-  const { randomMeal } = useLoaderData() as loaderdata;
+  const { randomRecipe } = useLoaderData() as loaderdata;
 
   return (
-    <section className="container mx-auto px-4 py-8">
+    <main className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
-        Random Meal
+        Random Recipe
       </h1>
 
-      <div>
-        {randomMeal?.error ? (
+      <section>
+        {randomRecipe?.error ? (
           <div className="flex items-center justify-center min-h-[400px] w-full">
             <div className="text-center bg-white p-6 rounded-lg shadow-md">
               <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 Oops! Something went wrong
               </h2>
-              <p className="text-gray-600 mb-4">{randomMeal.error}</p>
+              <p className="text-gray-800 mb-4">{randomMeal.error}</p>
             </div>
           </div>
         ) : (
@@ -58,7 +58,7 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-6">
-                  <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                  <h2 className="text-2xl font-semibold mb-4 text-gray-800 truncate">
                     {meal.strMeal}
                   </h2>
                   <div className="flex space-x-2 cursor-pointer">
@@ -74,7 +74,7 @@ export default function Index() {
             ))}
           </div>
         )}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

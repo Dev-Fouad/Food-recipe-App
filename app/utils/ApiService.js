@@ -1,5 +1,5 @@
-// function to get A randomMeal
-export const getRandomMeal = async () => {
+// function to get A randomRecipe
+export const getRandomRecipe = async () => {
   try {
     const res = await fetch(
       "https://www.themealdb.com/api/json/v1/1/random.php"

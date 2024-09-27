@@ -20,7 +20,7 @@ export const Header = () => {
             Food Recipe App
           </h2>
         </h1>
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 cursor-pointer">
           <h2 className="text-white hover:text-yellow-200 transition duration-300 text-lg font-semibold">
             Home
           </h2>
