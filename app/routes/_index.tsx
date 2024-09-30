@@ -31,17 +31,15 @@ export async function action({ request }: ActionFunctionArgs) {
 
   if (!recipeValue) {
     errors.recipevalue = "Please enter a valid recipe name";
-  } else {
-    errors.recipevalue = "We have your recipe name already.";
   }
-
-  console.log(errors.recipevalue);
 
   if (Object.keys(errors).length) {
     return {
-      errors: Object.keys(errors).length ? errors : null,
+      errors: Object.keys(errors).length ? errors : null
     };
   }
+
+  return null
 }
 
 export default function Index() {
