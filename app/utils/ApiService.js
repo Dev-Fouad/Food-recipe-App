@@ -10,3 +10,16 @@ export const getRandomRecipe = async () => {
     return { meals: null, error: error?.message };
   }
 };
+
+// function to get meal by name
+export const getMeal = async () => {
+  try {
+    const res = await fetch(
+      "www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"
+    );
+    const data = await res?.json();
+    if (data?.meals) return { meals: data?.meals, error: null };
+  } catch (error) {
+    return { meals: null, error: error?.message };
+  }
+};
